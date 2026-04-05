@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# custom files
+.DS_Store
+.trae
+chrome-extension-dist
+browser-control-skill.zip
