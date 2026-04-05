@@ -160,15 +160,15 @@ kill -9 $(lsof -ti:3333,3334)
 
 ### Agent 使用 Skill 控制浏览器
 
-![Agent with Skill](readme_assets/agent_with_skill.jpg)
+![Agent with Skill](README_ASSETS/agent_with_skill.jpg)
 
 ### Chrome 扩展连接状态
 
-![Chrome Extension](readme_assets/chrome_extension.jpg)
+![Chrome Extension](README_ASSETS/chrome_extension.jpg)
 
 ### 本地服务运行状态
 
-![Server](readme_assets/server.jpg)
+![Server](README_ASSETS/server.jpg)
 
 ---
 
