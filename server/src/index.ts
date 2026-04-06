@@ -8,7 +8,7 @@ const WS_PORT = 3334;
 const REQUEST_TIMEOUT = parseInt(process.env.REQUEST_TIMEOUT || '30000', 10);
 
 console.log('╔════════════════════════════════════════════════════════╗');
-console.log('║     Agent Browser Control Server                       ║');
+console.log('║     Agent Browser Operator Server                       ║');
 console.log('╚════════════════════════════════════════════════════════╝');
 console.log();
 

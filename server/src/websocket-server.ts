@@ -59,7 +59,7 @@ export class WebSocketManager {
       this.sendToExtension({
         id: `welcome-${Date.now()}`,
         type: 'WELCOME',
-        payload: { message: 'Connected to Agent Browser Control Server' },
+        payload: { message: 'Connected to Agent Browser Operator Server' },
       });
     });
 

@@ -1,7 +1,7 @@
 {
-  "name": "agent-browser-control-server",
+  "name": "agent-browser-operator-server",
   "version": "1.0.0",
-  "description": "Server for Agent Browser Control - WebSocket + HTTP API",
+  "description": "Server for Agent Browser Operator - WebSocket + HTTP API",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
