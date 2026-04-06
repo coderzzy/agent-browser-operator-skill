@@ -104,7 +104,7 @@ const Popup: React.FC = () => {
   return (
     <div>
       <div className="header">
-        <h1>🌐 Agent Browser Control</h1>
+        <h1>🌐 Agent Browser Operator</h1>
         <p>让 AI Agent 远程控制浏览器</p>
       </div>
 

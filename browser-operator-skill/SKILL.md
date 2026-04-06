@@ -1,14 +1,14 @@
 ---
-name: browser-control
+name: browser-operator
 description: 远程控制 Chrome 浏览器，执行标签页管理、页面操作和自动化任务。当用户需要控制浏览器、管理标签页、获取页面内容或执行浏览器自动化操作时触发。
 license: Apache-2.0
-compatibility: 需要本地启动 Browser Control Server (Node.js) 和 Chrome 扩展
+compatibility: 需要本地启动 Browser Operator Server (Node.js) 和 Chrome 扩展
 metadata:
   version: "1.0.0"
-  author: agent-browser-control-skill
+  author: agent-browser-operator-skill
 ---
 
-# Browser Control Skill
+# Browser Operator Skill
 
 ## 简介
 
@@ -42,7 +42,7 @@ curl http://localhost:3333/health
 
 **失败处理：**
 如果无法连接，提示用户启动服务：
-> "请先启动 Browser Control Server：cd server && npm run dev"
+> "请先启动 Browser Operator Server：cd server && npm run dev"
 
 ### 2. 扩展连接检查
 

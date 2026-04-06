@@ -1,20 +1,20 @@
-# agent-browser-control-skill
+# agent-browser-operator-skill
 
-基于 Chrome 浏览器插件的 Agent Browser Control Skill，让 AI Agent 能够远程控制浏览器进行自动化操作。
+类似 Manus AI Browser Operator 和 AnyGen Browser Operator 浏览器插件，基于 Chrome 浏览器插件的 Agent Browser Operator Skill，让 AI Agent 能够操作浏览器进行自动化操作。
 
 ## 与 browser-use 的核心区别
 
 ### 本质差异
 
-| | browser-use | browser-control-skill |
+| | browser-use | browser-operator-skill |
 |---|---|---|
-| **核心定位** | 让 AI **拥有**一个独立的浏览器 | 让 AI **接管**你正在使用的浏览器 |
+| **核心定位** | 让 AI **拥有**一个独立的浏览器 | 让 AI **操作**你正在使用的浏览器 |
 | **浏览器实例** | 启动一个全新的浏览器进程 | 连接到你已有的 Chrome 浏览器 |
 | **用户视角** | AI 在后台操作，你看不到 | AI 在你的浏览器上操作，你实时可见 |
 
 ### 详细对比
 
-| 特性 | browser-use | browser-control-skill |
+| 特性 | browser-use | browser-operator-skill |
 |------|-------------|----------------------|
 | **控制方式** | Python 库直接控制浏览器 | Chrome 插件 + 本地服务 + HTTP API |
 | **浏览器支持** | Playwright/Selenium 支持的所有浏览器 | 仅 Chrome（通过插件） |
@@ -31,7 +31,7 @@
 - 不需要访问你个人的登录态和浏览器数据
 - 在服务器/云端运行，无需人工干预
 
-**使用 browser-control-skill，如果你需要：**
+**使用 browser-operator-skill，如果你需要：**
 - 让 AI 协助你处理当前正在浏览的网页
 - AI 需要访问你已登录的网站（如帮你整理已打开的 GitHub 页面）
 - 你想实时看到 AI 的操作，随时接管控制
@@ -74,7 +74,7 @@
      - 对外暴露 HTTP API 供 Agent 调用
      - 消息转发和协议转换
 
-3. **Skill** (`browser-control-skill/`)
+3. **Skill** (`browser-operator-skill/`)
    - 提供给 Agent 使用的技能定义文档
    - 包含完整的能力清单、API 接口描述和使用示例
 
@@ -82,18 +82,18 @@
 
 ### 方式一：Agent 安装 Skill（推荐）
 
-将 `browser-control-skill/` 文件夹压缩成 ZIP 文件，提供给 Agent 安装：
+将 `browser-operator-skill/` 文件夹压缩成 ZIP 文件，提供给 Agent 安装：
 
 ```bash
 # 压缩 skill 文件夹
-zip -r browser-control-skill.zip browser-control-skill/
+zip -r browser-operator-skill.zip browser-operator-skill/
 ```
 
-然后在你的 Agent 平台中上传 `browser-control-skill.zip` 文件进行安装。
+然后在你的 Agent 平台中上传 `browser-operator-skill.zip` 文件进行安装。
 
 ### 方式二：手动配置
 
-将 `browser-control-skill/SKILL.md` 文件的内容复制到你的 Agent 配置中。
+将 `browser-operator-skill/SKILL.md` 文件的内容复制到你的 Agent 配置中。
 
 ---
 
@@ -175,8 +175,8 @@ kill -9 $(lsof -ti:3333,3334)
 ## 项目结构
 
 ```
-agent-browser-control-skill/
-├── browser-control-skill/     # Agent Skill（可压缩成 ZIP 安装）
+agent-browser-operator-skill/
+├── browser-operator-skill/     # Agent Skill（可压缩成 ZIP 安装）
 │   └── SKILL.md               # Skill 定义文件
 ├── chrome-extension-src/      # Chrome 插件源码
 │   ├── src/
@@ -222,7 +222,7 @@ agent-browser-control-skill/
 如需修改端口，必须同时修改以下文件并保持统一：
 - `server/src/index.ts` - Server 监听端口
 - `chrome-extension-src/src/config.ts` - 扩展统一配置
-- `browser-control-skill/browser-control.skill` - Skill 文档中的 API 地址
+- `browser-operator-skill/browser-operator.skill` - Skill 文档中的 API 地址
 
 #### 2. 接口字段约定
 
@@ -242,7 +242,7 @@ interface WSMessage {
 3. `server/src/http-server.ts` - HTTP 路由处理
 4. `server/src/websocket-server.ts` - WebSocket 消息处理
 5. `chrome-extension-src/src/background.ts` - 消息处理器
-6. `browser-control-skill/browser-control.skill` - Skill 文档
+6. `browser-operator-skill/browser-operator.skill` - Skill 文档
 
 #### 3. 消息类型命名规范
 
@@ -259,7 +259,7 @@ interface WSMessage {
    - 先更新 `server/src/types.ts` 类型定义
    - 实现 `http-server.ts` 路由
    - 实现 `websocket-server.ts` 消息转发
-   - 更新 `browser-control-skill/SKILL.md` 文档
+   - 更新 `browser-operator-skill/SKILL.md` 文档
    - **更新 `README.md` 相关说明**（如新增接口、修改端口、项目结构等）
 
 2. **修改扩展功能**
@@ -286,7 +286,7 @@ interface WSMessage {
 三个模块的版本应当保持一致：
 - 修改 API 时，同步更新 `package.json` 中的 `version`
 - 破坏性变更需要更新 major 版本号
-- 在 `browser-control-skill/SKILL.md` 中记录变更日志
+- 在 `browser-operator-skill/SKILL.md` 中记录变更日志
 
 ## 贡献指南
 
